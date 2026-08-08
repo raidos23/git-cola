@@ -311,7 +311,7 @@ def fallback_editor() -> str:
 
 def _config_with_override(context, override_key: str, fallback_key: str, default='') -> str:
     """Return a cola.* override when configured, else fall back to the git key."""
-    value = context.cfg.get(override_key, default=default)
+    value = context.cfg.get(override_key, default=None)
     if value:
         return value
     return context.cfg.get(fallback_key, default=default)
